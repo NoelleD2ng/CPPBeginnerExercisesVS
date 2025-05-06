@@ -1,7 +1,8 @@
 
 #include <iostream>
 #include <cmath>
-
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 void information() {
@@ -21,6 +22,22 @@ void information() {
     cout << "Your totalTax is: $" << totalTax << endl;
 }
 
+void randomNumber() {
+    long elapsedSeconds = time(0);
+    srand(elapsedSeconds);
+    int number = rand() % 10;
+	cout << number << endl;
+}
+
+void randomizeNumberInRange() {
+    int minValue = 1;
+	int maxValue = 100;
+
+	srand(time(0)); // seed the random number generator with the current time
+	int firstRandomNumber = rand() % (maxValue - minValue + 1) + minValue; // generates a random number between the min and max values
+    int secondRandomNumber = rand() % (maxValue - minValue + 1) + minValue; // generates a random number between the min and max values
+	cout << firstRandomNumber << ", " << secondRandomNumber << endl;
+}
 void inputName() { //Enter your name into the console and it returns your name
     cout << "Enter your name: ";
     string name;
@@ -70,13 +87,20 @@ void fundementalTypes() {
 
 }
 
+void narrowing() {
+	//narrowing conversion
+	int number = 1000000000;
+	short another = number; //this is a narrowing conversion
+	cout << another << endl;
+}
+
 void fundementalTypesScenarios() {
     int number{ 19842192 };
     cout << number << endl;
 }
 
 void numberSystems() {
-    unsigned int number = 0;
+    int number = 0;
     number--;
     cout << number << endl;
 }
@@ -86,9 +110,12 @@ int main() {
     //inputName();
     //inputValues();
     //convertFahrenheitCelcius();
-    calculateCircle();
+    //calculateCircle();
     //fundementalTypesScenarios();
     //numberSystems();
+	//narrowing();
+	//randomNumber();
+	randomizeNumberInRange();
     return 0;
 
 }
