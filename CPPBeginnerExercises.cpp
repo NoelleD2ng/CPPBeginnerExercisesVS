@@ -27,6 +27,7 @@ void randomNumber() {
     srand(elapsedSeconds);
     int number = rand() % 10;
 	cout << number << endl;
+	system("pause");
 }
 
 void randomizeNumberInRange() {
@@ -105,6 +106,50 @@ void numberSystems() {
     cout << number << endl;
 }
 
+void ascii() {
+	char c1, c2, c3, c4, c5;
+	cout << "Enter 5 characters: ";
+	cin >> c1 >> c2 >> c3 >> c4 >> c5;
+	cout << "The ASCII values are: " << int(c1) << " " << int(c2) << " " << int(c3) << " " << int(c4) << " " << int(c5) << endl;
+	system("Pause > 0");
+}
+
+void ifElseStatements() {
+    //user enters integer number
+    //program write out if that number is even or odd
+    int number;
+    cout << "Enter an integer number: ";
+    cin >> number;;
+    if (number % 2 == 0) {
+        cout << "Your number is even. " << endl;
+    }
+    else {
+        cout << "Your number is odd. " << endl;
+    }
+	cout << "Thank you! Bye..." << endl;
+    system("pause>0");
+    
+}// end of function
+
+void triangleDetermination() {
+    //user enters side lenghths of a triangle (a.b.c)
+	//program should write out wheter that triangle is equilateral, isosceles or scalene
+    int a, b, c;
+	cout << "Enter the lengths of the three sides of a triangle: ";
+	cin >> a >> b >> c;
+	if (a == b && b == c) {
+		cout << "The triangle is equilateral." << endl;
+	}   
+	else if (a == b || b == c || a == c) {
+		cout << "The triangle is isosceles." << endl;
+	}
+	else {
+		cout << "The triangle is scalene." << endl;
+	}
+	cout << "Thank you! Bye..." << endl;
+    system("pause>0");
+}
+
 int main() {
     //information();
     //inputName();
@@ -115,7 +160,10 @@ int main() {
     //numberSystems();
 	//narrowing();
 	//randomNumber();
-	randomizeNumberInRange();
+	//randomizeNumberInRange();
+	//ascii();
+	//ifElseStatements();
+	triangleDetermination();
     return 0;
 
 }
