@@ -150,6 +150,191 @@ void triangleDetermination() {
     system("pause>0");
 }
 
+void arithmeticOperators() {
+	// +, - , *, /, %
+
+	cout << 5+ 2 << endl; // addition
+	cout << 5 / 2.0 << endl; // division
+
+
+    system("pause");
+}
+
+void swappingVariables() {
+    
+    //Program for swapping values of two variables without a third variable
+    int a = 20;
+	int b = 10;
+	a = a + b; // a now becomes 30
+	b = a - b; // b becomes 20
+	a = a - b; // a becomes 10
+	cout << "a" << a << endl;
+	cout << "b" << b << endl;
+	system("pause>0");
+}
+
+void bmiCalculator() {
+    //BMi calculator
+    //weight(kg) / height * height
+	//underweight: < 18.5
+	// Normal weight 18.5 - 24.9
+    //overweight > 25
+    double weight;
+    double height;
+	cout << "Enter your weight in kg: ";
+	cin >> weight;
+	cout << "Enter your height in meters: ";
+	cin >> height;
+	double bmi = weight / (height * height);
+	cout << "Your BMI is: " << bmi << endl;
+	if (bmi < 18.5) {
+		cout << "You are underweight." << endl;
+	}
+	else if (bmi >= 18.5 && bmi <= 24.9) {
+		cout << "You are normal weight." << endl;
+	}
+	else {
+		cout << "You are overweight." << endl;
+	}
+	system("pause>0");
+
+}
+
+void calculator() {
+    float num1, num2, result;
+	char operation;
+	cout << "*Calculator*" << endl;
+    cin >> num1 >> operation >> num2;
+    bool isSkipFinalPrint = false;
+
+    switch (operation)
+    {
+    case '-': result = (num1 - num2);break;
+    case '+': result = (num1 + num2);break;
+    case '*': result = (num1 * num2);break;
+    case '/': result = (num1 / num2);break;
+    case '%': 
+        bool isNum1Integer, isNum2Integer;
+
+        isNum1Integer = (num1 == (int)num1);
+		isNum2Integer = (num2 == (int)num2);
+        if (isNum1Integer && isNum2Integer) {
+            result = ((int)num1 % (int)num2);
+        }
+        else {
+            cout << "Error: Modulus operator can only be used with integers." << endl;
+        }
+        isSkipFinalPrint = true;
+        break;
+	default: cout << "Error: Invalid operator." << endl;
+        isSkipFinalPrint = true;
+    }
+
+    if(!isSkipFinalPrint) {
+        cout << num1 << operation << num2 << "=" << result;
+    }
+    
+    system("pause>0");
+}
+
+void checkNumberOfDaysInMonth() {
+    //build a program that checks number of days in a month
+    int month, year;
+    cout << "Year,month: " ;
+    cin >> year >> month;
+    //(year % 4 == 0 && year %100 != 0 || year % 400 == 0)
+    switch (month) {
+    case 2: (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) ?
+        cout << "29 days month. " : cout << "28 days month. "; break;
+    case 4:
+    case 6://leaving it blank without a break makes the code run until it finds a case and breaks
+    case 9:// if the month is equal to 4,6,9, or 11, then it will print that there are 30 days and then break
+    case 11: cout << "30 days month. "; break;
+    case 1:
+    case 3: // if the month is equal to 1, 3, 5 7,8, 10, 12 then these are the months that will have 31 days and then break
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+    case 12:cout << "31 day s month. "; break;
+    default: cout << "Not valid!";
+    }
+    system("pause > 0");
+}
+
+void loops() {
+    // write out all the numbers between 100 - 500 that are divisible by 3 and 5
+
+    int num = 100;
+    while (num <= 500) {
+        if (num % 3 == 0 && num % 5 == 0) {
+            cout << num << " is divisible\n";
+            num++;
+        }else {
+            num++;
+        }
+    }
+    system("pause > 0");
+}
+
+void countDigitsInNumber() {
+    //write a program that counts the number of digits of a number
+    int number;
+    int counter = 0;
+    cout << "Enter in a number: ";
+    cin >> number;
+    while (number > 0) {
+        number /= 10;
+        counter++;
+    }
+    cout << "Number contains " << counter << " digits";
+    system("pause > 0");
+}  
+void pinNumber() {
+
+    int userPin = 1234, pin, errorCounter = 0;
+
+    do {
+        cout << "Enter your pin: ";
+        cin >> pin;
+        if (pin != userPin) {
+            errorCounter++;
+        }
+            
+    } while (userPin != pin && errorCounter < 3);
+
+    if (errorCounter < 3) {
+        cout << "Loading...";
+    }
+    else {
+        cout << "Blocked...";
+    }
+    system("Pause > 0");
+}
+
+void drawRectangle() {
+    // this programs draws a rectangle by user inputting a height length and type of symbol to use
+    int height, width;
+    char symbol;
+
+    cout << "Enter a height for your rectangle: ";
+    cin >> height;
+    cout << "Enter a width for your rect angle: ";
+    cin >> width;
+    cout << "Enter a symbol --> ";
+    cin >> symbol;
+
+    for (int i = 0; i < height; i++) {
+        cout << symbol << " ";
+        for (int j = 0; j < width; j++) {
+            cout << symbol << " ";
+        }
+        cout << endl;
+    }
+
+}
+
+
 int main() {
     //information();
     //inputName();
@@ -163,7 +348,15 @@ int main() {
 	//randomizeNumberInRange();
 	//ascii();
 	//ifElseStatements();
-	triangleDetermination();
+	//triangleDetermination();
+	//arithmeticOperators();
+	//bmiCalculator();
+    //calculator();
+    //checkNumberOfDaysInMonth();
+    //loops();
+   //countDigitsInNumber();
+    //pinNumber();
+    drawRectangle();
     return 0;
 
 }
